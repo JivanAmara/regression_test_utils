@@ -9,13 +9,13 @@ from unittest import TestCase
 
 from <my.module> import MyPreviouslyUntestedClass
 
+jp_test_cases = [
+    <my jsonpickle'd test cases>
+]
+
 class TestMyPreviouslyUntestedClass(TestCase):
     TestClass = MyPreviouslyUntestedClass
     test_instance = MyPreviouslyUntestedClass()
-
-    jp_test_cases = [
-	<my jsonpickle'd test cases>
-    ]
 
     @classmethod
     def get_method_name(cls, idx, method_args, method_kwargs):
@@ -47,7 +47,7 @@ class TestMyPreviouslyUntestedClass(TestCase):
         m = MethodType(new_method, None, cls)
         setattr(cls, method_name, m)
 
-for i, jp_testcase in enumerate(TestMyPreviouslyUntestedClass.jp_test_cases):
+for i, jp_testcase in enumerate(jp_test_cases):
     test_case = jsonpickle.decode(jp_testcase, keys=True)
     tested_method_args = test_case[1]
     tested_method_kwargs = test_case[2]
