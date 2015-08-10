@@ -19,7 +19,8 @@ Quick Start (Assumes you have basic familiarity with python unittests)
 
 * run your program, using features that use this method.
 
-* Copy the TestCaseTemplate.py module to your tests directory and rename to something appropriate.
+* Copy the TestCaseTemplate module to your tests directory and rename to an
+    appropriately named python module (don't forget to add a .py extension).
 
 * In your test case module make the following updates:
   * from <my.module> import MyPreviouslyUntestedClass -> reflect your code
