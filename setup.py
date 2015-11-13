@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='regression-test-utils',
-    version='0.5',
+    version='0.7',
     packages=['regression_test_utils'],
     include_package_data=True,
     description='Facilitates fairly easy creation of regression tests.',
