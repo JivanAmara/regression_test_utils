@@ -2,7 +2,7 @@ from regression_test_utils import log_test_case
 import logging
 logger = logging.getLogger(__name__)
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename='test_log.log', level=logging.DEBUG)
 
 class test_program(object):
 
