@@ -1,2 +1,0 @@
-DEBUG:__main__:Decorator TestCase for "__main__.combine":
-	'{"py/tuple": ["combine", {"py/tuple": ["results"]}, {}, "my_method, results"]}'

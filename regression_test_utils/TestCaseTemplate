@@ -7,14 +7,15 @@ Created on Aug 4, 2015
 import jsonpickle
 from unittest import TestCase
 
-from combine import test_program
+from <my.module> import MyPreviouslyUntestedClass
 
 jp_test_cases = [
-    ]
+    <my jsonpickle'd test cases>
+]
 
 class TestMyPreviouslyUntestedClass(TestCase):
-    TestClass = test_program
-    test_instance = test_program()
+    TestClass = MyPreviouslyUntestedClass
+    test_instance = MyPreviouslyUntestedClass()
 
     @classmethod
     def get_method_name(cls, idx, method_args, method_kwargs):
