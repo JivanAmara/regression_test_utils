@@ -5,23 +5,24 @@ Created on Aug 4, 2015
 '''
 
 import jsonpickle
+import unittest
 from unittest import TestCase
 
-from combine import test_program
+from combine import TestClass
 
 jp_test_cases = [
+'{"py/tuple": ["combine", {"py/tuple": ["my_method,", "results"]}, {}, "my_method, results"]}',
+'{"py/tuple": ["combine", {"py/tuple": ["hello,", "my friend"]}, {}, "hello, my friend"]}'
     ]
 
 class TestMyPreviouslyUntestedClass(TestCase):
-    TestClass = test_program
-    test_instance = test_program()
+    TestClass = TestClass
+    test_instance = TestClass()
 
     @classmethod
     def get_method_name(cls, idx, method_args, method_kwargs):
-        method_name, sequences, allele_lengths_list = method_args
 	# Dynamically created method name
-        mn = 'test_{:02}_{}_args_{}_kwargs_{}'.format(
-                    idx, method_name, len(method_args), len(method_kwargs))
+        mn = "test_method_name-{}".format(idx)
         return mn
 
     def perform_one_tc(self, tc):
@@ -41,9 +42,9 @@ class TestMyPreviouslyUntestedClass(TestCase):
         def new_test_method(self, tc=testcase):
             self.perform_one_tc(tc)
 
-        new_method.__name__ = method_name
+        new_test_method.__name__ = method_name
         from types import MethodType
-        m = MethodType(new_method, None, cls)
+        m = MethodType(new_test_method, None, cls)
         setattr(cls, method_name, m)
 
 for i, jp_testcase in enumerate(jp_test_cases):
@@ -54,3 +55,6 @@ for i, jp_testcase in enumerate(jp_test_cases):
     test_method_name = \
         TestMyPreviouslyUntestedClass.get_method_name(i, tested_method_args, tested_method_kwargs)
     TestMyPreviouslyUntestedClass._add_method(test_method_name, test_case)
+    
+if __name__ == "__main__":
+    unittest.main()

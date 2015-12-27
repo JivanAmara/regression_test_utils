@@ -1,2 +1,8 @@
 DEBUG:__main__:Decorator TestCase for "__main__.combine":
-	'{"py/tuple": ["combine", {"py/tuple": ["results"]}, {}, "my_method, results"]}'
+	'{"py/tuple": ["combine", {"py/tuple": ["my_method,", "results"]}, {}, "my_method, results"]}'
+DEBUG:__main__:Decorator TestCase for "__main__.combine":
+	'{"py/tuple": ["combine", {"py/tuple": ["hello,", "my friend"]}, {}, "hello, my friend"]}'
+DEBUG:combine:Decorator TestCase for "combine.combine":
+	'{"py/tuple": ["combine", {"py/tuple": ["my_method,", "results"]}, {}, "my_method, results"]}'
+DEBUG:combine:Decorator TestCase for "combine.combine":
+	'{"py/tuple": ["combine", {"py/tuple": ["hello,", "my friend"]}, {}, "hello, my friend"]}'

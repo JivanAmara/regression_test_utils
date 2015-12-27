@@ -4,11 +4,14 @@ logger = logging.getLogger(__name__)
 
 logging.basicConfig(filename='test_log.log', level=logging.DEBUG)
 
-class test_program(object):
+class TestClass(object):
 
 	@log_test_case(logger, __name__)
-	def combine(method_name, log_file):
+	def combine(self, method_name, log_file):
 		result = method_name + " " + log_file
 		return result;
 
-	combine('my_method,', 'results')
+if __name__ == '__main__':
+	tc = TestClass()
+	tc.combine('my_method,', 'results')
+	tc.combine('hello,', 'my friend')
