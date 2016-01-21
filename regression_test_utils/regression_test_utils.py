@@ -14,22 +14,22 @@ class log_test_case(object):
         @since: 2015-07-29
         @change: 2015-08-03 by Jivan: Added class_name to initialization & logged output.
     """
-    def __init__(self, logger, class_name):
+    def __init__(self, logger):
         self.logger = logger
-        self.class_name = class_name
 
     def __call__(self, f):
+        method_class = f.__class__
         method_name = f.__name__
         logger = self.logger
         def wrapped_f(*args, **kwargs):
             result = f(*args, **kwargs)
             if logger.getEffectiveLevel() <= logging.DEBUG:
                 args_wo_instance = args[1:]
-                tc = repr(jsonpickle.encode(
+                jsonp_test = repr(jsonpickle.encode(
                             (method_name, args_wo_instance, kwargs, result), keys=True
                           )
                      )
-                logger.debug('Decorator TestCase for "{}.{}":\n\t{}'\
-                                 .format(self.class_name, method_name, tc))
+                logger.debug('Method Decorator Test for "{}.{}":\n\t{}'\
+                                 .format(method_class, method_name, jsonp_test))
             return result
         return wrapped_f
