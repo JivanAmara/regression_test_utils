@@ -1,2 +1,0 @@
-from regression_test_utils import log_test_case
-
